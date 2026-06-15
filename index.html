@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditya's Daily Digest</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">☀️</span>
+          <div>
+            <h1>Good Morning, Aditya</h1>
+            <p id="date-line">Loading today's date...</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="last-updated" class="last-updated">Fetching digest...</div>
+        <button class="refresh-btn" onclick="loadNews()">
+          <span class="refresh-icon">↻</span> Refresh
+        </button>
+      </div>
+    </div>
+    <div class="header-tagline">Your world. Simplified.</div>
+  </header>
+
+  <!-- ── CATEGORY NAV ───────────────────────────── -->
+  <nav class="cat-nav" id="cat-nav">
+    <!-- populated by JS -->
+  </nav>
+
+  <!-- ── MAIN CONTENT ───────────────────────────── -->
+  <main class="main-content" id="main-content">
+    <div class="loading-state" id="loading-state">
+      <div class="spinner"></div>
+      <p>Loading your daily digest...</p>
+      <small>If this is your first time, run <code>python news_fetcher.py</code> first</small>
+    </div>
+
+    <div class="error-state hidden" id="error-state">
+      <div class="error-icon">📭</div>
+      <h2>No digest found yet</h2>
+      <p>Run the fetcher to generate today's news:</p>
+      <div class="code-block">
+        <code>python news_fetcher.py</code>
+      </div>
+      <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted)">Make sure your <code>ANTHROPIC_API_KEY</code> is set first.</p>
+    </div>
+
+    <div id="news-grid" class="news-grid hidden"></div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>Built with ☕ & Claude AI · Aditya's Personal Daily Digest</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
